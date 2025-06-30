@@ -1,344 +1,113 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Gestión - Sodas</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sodify</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <h2>Sodify</h2>
-            </div>
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="#" class="nav-link" data-module="user">Usuarios</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link" data-module="soda">Sodas</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link" data-module="menu">Menú</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link" data-module="item">Items</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link" data-module="carrito">Carrito</a>
-                </li>
-            </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </div>
+  <header>
+    <h1>Sodify</h1>
+    <nav>
+      <ul>
+        <li><a href="#" data-module-target="home">Home</a></li>
+        <li><a href="#" data-module-target="user">Usuarios</a></li>
+        <li><a href="#" data-module-target="soda">Sodas</a></li>
+        <li><a href="#" data-module-target="menu">Menú</a></li>
+        <li><a href="#" data-module-target="item">Items</a></li>
+        <li><a href="#" data-module-target="carrito">Carrito</a></li>
+      </ul>
     </nav>
-
-    <main class="main-content">
-        <div class="container">
-            <!-- User Module -->
-            <section id="user-module" class="module-section active">
-                <div class="section-header">
-                    <h1>Gestión de Usuarios</h1>
-                    <button class="btn btn-primary" onclick="showUserModal()">
-                        <span class="btn-icon">+</span>
-                        Agregar Usuario
-                    </button>
-                </div>
-                
-                <div class="table-container">
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Nombre</th>
-                                <th>Tipo</th>
-                                <th>Email</th>
-                                <th>Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody id="user-table-body">
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-
-            <!-- Soda Module -->
-            <section id="soda-module" class="module-section">
-                <div class="section-header">
-                    <h1>Gestión de Sodas</h1>
-                    <button class="btn btn-primary" onclick="showSodaModal()">
-                        <span class="btn-icon">+</span>
-                        Agregar Soda
-                    </button>
-                </div>
-                
-                <div class="table-container">
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Nombre</th>
-                                <th>Tipo</th>
-                                <th>Ubicación</th>
-                                <th>Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody id="soda-table-body">
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-
-            <!-- Menu Module -->
-            <section id="menu-module" class="module-section">
-                <div class="section-header">
-                    <h1>Gestión de Menú</h1>
-                    <button class="btn btn-primary" onclick="showMenuModal()">
-                        <span class="btn-icon">+</span>
-                        Agregar Menú
-                    </button>
-                </div>
-                
-                <div class="table-container">
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Nombre</th>
-                                <th>Precio</th>
-                                <th>Descripción</th>
-                                <th>Soda</th>
-                                <th>Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody id="menu-table-body">
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-
-            <!-- Item Module -->
-            <section id="item-module" class="module-section">
-                <div class="section-header">
-                    <h1>Gestión de Items</h1>
-                    <button class="btn btn-primary" onclick="showItemModal()">
-                        <span class="btn-icon">+</span>
-                        Agregar Item
-                    </button>
-                </div>
-                
-                <div class="table-container">
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Nombre</th>
-                                <th>Precio</th>
-                                <th>Soda</th>
-                                <th>Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody id="item-table-body">
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-
-            <!-- Carrito Module -->
-            <section id="carrito-module" class="module-section">
-                <div class="section-header">
-                    <h1>Gestión de Carrito</h1>
-                    <button class="btn btn-primary" onclick="showCarritoModal()">
-                        <span class="btn-icon">+</span>
-                        Agregar al Carrito
-                    </button>
-                </div>
-                
-                <div class="table-container">
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Item</th>
-                                <th>Usuario</th>
-                                <th>Categoría</th>
-                                <th>Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody id="carrito-table-body">
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-        </div>
-    </main>
-
-    <!-- Modals -->
-    <!-- User Modal -->
-    <div id="user-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 id="user-modal-title">Agregar Usuario</h2>
-                <span class="close" onclick="closeModal('user-modal')">&times;</span>
-            </div>
-            <form id="user-form">
-                <input type="hidden" id="user-id">
-                <div class="form-group">
-                    <label for="user-name">Nombre:</label>
-                    <input type="text" id="user-name" required>
-                </div>
-                <div class="form-group">
-                    <label for="user-type">Tipo:</label>
-                    <input type="text" id="user-type" required>
-                </div>
-                <div class="form-group">
-                    <label for="user-email">Email:</label>
-                    <input type="email" id="user-email" required>
-                </div>
-                <div class="form-group">
-                    <label for="user-password">Contraseña:</label>
-                    <input type="password" id="user-password" required>
-                </div>
-                <div class="form-actions">
-                    <button type="button" class="btn btn-secondary" onclick="closeModal('user-modal')">Cancelar</button>
-                    <button type="submit" class="btn btn-primary">Guardar</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- Soda Modal -->
-    <div id="soda-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 id="soda-modal-title">Agregar Soda</h2>
-                <span class="close" onclick="closeModal('soda-modal')">&times;</span>
-            </div>
-            <form id="soda-form">
-                <input type="hidden" id="soda-id">
-                <div class="form-group">
-                    <label for="soda-name">Nombre:</label>
-                    <input type="text" id="soda-name" required>
-                </div>
-                <div class="form-group">
-                    <label for="soda-type">Tipo:</label>
-                    <input type="text" id="soda-type" required>
-                </div>
-                <div class="form-group">
-                    <label for="soda-location">Ubicación:</label>
-                    <input type="text" id="soda-location" required>
-                </div>
-                <div class="form-actions">
-                    <button type="button" class="btn btn-secondary" onclick="closeModal('soda-modal')">Cancelar</button>
-                    <button type="submit" class="btn btn-primary">Guardar</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- Menu Modal -->
-    <div id="menu-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 id="menu-modal-title">Agregar Menú</h2>
-                <span class="close" onclick="closeModal('menu-modal')">&times;</span>
-            </div>
-            <form id="menu-form">
-                <input type="hidden" id="menu-id">
-                <div class="form-group">
-                    <label for="menu-name">Nombre:</label>
-                    <input type="text" id="menu-name" required>
-                </div>
-                <div class="form-group">
-                    <label for="menu-price">Precio:</label>
-                    <input type="number" id="menu-price" step="0.01" required>
-                </div>
-                <div class="form-group">
-                    <label for="menu-description">Descripción:</label>
-                    <textarea id="menu-description" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="menu-soda">Soda:</label>
-                    <select id="menu-soda" required>
-                        <option value="">Seleccionar Soda</option>
-                    </select>
-                </div>
-                <div class="form-actions">
-                    <button type="button" class="btn btn-secondary" onclick="closeModal('menu-modal')">Cancelar</button>
-                    <button type="submit" class="btn btn-primary">Guardar</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- Item Modal -->
-    <div id="item-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 id="item-modal-title">Agregar Item</h2>
-                <span class="close" onclick="closeModal('item-modal')">&times;</span>
-            </div>
-            <form id="item-form">
-                <input type="hidden" id="item-id">
-                <div class="form-group">
-                    <label for="item-name">Nombre:</label>
-                    <input type="text" id="item-name" required>
-                </div>
-                <div class="form-group">
-                    <label for="item-price">Precio:</label>
-                    <input type="number" id="item-price" step="0.01" required>
-                </div>
-                <div class="form-group">
-                    <label for="item-soda">Soda:</label>
-                    <select id="item-soda" required>
-                        <option value="">Seleccionar Soda</option>
-                    </select>
-                </div>
-                <div class="form-actions">
-                    <button type="button" class="btn btn-secondary" onclick="closeModal('item-modal')">Cancelar</button>
-                    <button type="submit" class="btn btn-primary">Guardar</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- Carrito Modal -->
-    <div id="carrito-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 id="carrito-modal-title">Agregar al Carrito</h2>
-                <span class="close" onclick="closeModal('carrito-modal')">&times;</span>
-            </div>
-            <form id="carrito-form">
-                <input type="hidden" id="carrito-id">
-                <div class="form-group">
-                    <label for="carrito-item">Item:</label>
-                    <select id="carrito-item" required>
-                        <option value="">Seleccionar Item</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="carrito-user">Usuario:</label>
-                    <select id="carrito-user" required>
-                        <option value="">Seleccionar Usuario</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="carrito-category">Categoría:</label>
-                    <input type="text" id="carrito-category" required>
-                </div>
-                <div class="form-actions">
-                    <button type="button" class="btn btn-secondary" onclick="closeModal('carrito-modal')">Cancelar</button>
-                    <button type="submit" class="btn btn-primary">Guardar</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
+  </header>
+  <main>
+    <section id="home-module" class="module-section active">
+      <h2>Bienvenido a Sodify</h2>
+      <p>Gestión de Usuarios, Sodas, Menú, Items y Carrito.</p>
+    </section>
+    <section id="user-module" class="module-section">
+      <h2>Usuarios</h2>
+      <table id="user-table">
+        <thead>
+          <tr><th>ID</th><th>Nombre</th><th>Email</th><th>Tipo</th><th>Acciones</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <form id="user-form">
+        <input type="hidden" id="user-id">
+        <input type="text" id="user-name" placeholder="Nombre" required>
+        <input type="email" id="user-email" placeholder="Email" required>
+        <input type="text" id="user-type" placeholder="Tipo" required>
+        <input type="password" id="user-password" placeholder="Password" required>
+        <button type="submit">Guardar Usuario</button>
+      </form>
+    </section>
+    <section id="soda-module" class="module-section">
+      <h2>Sodas</n2>
+      <table id="soda-table">
+        <thead>
+          <tr><th>ID</th><th>Nombre</th><th>ML</th><th>Precio</th><th>Acciones</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <form id="soda-form">
+        <input type="hidden" id="soda-id">
+        <input type="text" id="soda-name" placeholder="Nombre" required>
+        <input type="number" id="soda-ml" placeholder="Mililitros" required>
+        <input type="number" step="0.01" id="soda-price" placeholder="Precio" required>
+        <button type="submit">Guardar Soda</button>
+      </form>
+    </section>
+    <section id="menu-module" class="module-section">
+      <h2>Menú</h2>
+      <table id="menu-table">
+        <thead>
+          <tr><th>ID</th><th>Nombre</th><th>Precio</th><th>Descripción</th><th>Soda</th><th>Acciones</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <form id="menu-form">
+        <input type="hidden" id="menu-id">
+        <input type="text" id="menu-name" placeholder="Nombre" required>
+        <input type="number" step="0.01" id="menu-price" placeholder="Precio" required>
+        <input type="text" id="menu-description" placeholder="Descripción" required>
+        <input type="number" id="menu-soda-id" placeholder="ID de Soda" required>
+        <button type="submit">Guardar Menú</button>
+      </form>
+    </section>
+    <section id="item-module" class="module-section">
+      <h2>Items</h2>
+      <table id="item-table">
+        <thead>
+          <tr><th>ID</th><th>Nombre</th><th>Precio</th><th>Soda</th><th>Acciones</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <form id="item-form">
+        <input type="hidden" id="item-id">
+        <input type="text" id="item-name" placeholder="Nombre" required>
+        <input type="number" step="0.01" id="item-price" placeholder="Precio" required>
+        <input type="number" id="item-soda-id" placeholder="ID de Soda" required>
+        <button type="submit">Guardar Item</button>
+      </form>
+    </section>
+    <section id="carrito-module" class="module-section">
+      <h2>Carrito</h2>
+      <table id="carrito-table">
+        <thead>
+          <tr><th>ID</th><th>Item</th><th>Usuario</th><th>Categoría</th><th>Acciones</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <form id="carrito-form">
+        <input type="number" id="carrito-item-id" placeholder="ID de Item" required>
+        <input type="text" id="carrito-category" placeholder="Categoría" required>
+        <input type="email" id="carrito-email" placeholder="Email de Usuario" required>
+        <button type="submit">Agregar</button>
+      </form>
+    </section>
+  </main>
+  <script src="script.js"></script>
 </body>
 </html>
