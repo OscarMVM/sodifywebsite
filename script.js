@@ -80,8 +80,8 @@ function renderSodaTable(sodas) {
     row.innerHTML = `
       <td>${s.id}</td>
       <td>${s.name}</td>
-      <td>${s.ml}</td>
-      <td>${s.price}</td>
+      <td>${s.type}</td>
+      <td>${s.location}</td>
       <td>
         <button class="edit-soda" data-id="${s.id}">✏️</button>
         <button class="delete-soda" data-id="${s.id}">🗑️</button>
@@ -91,7 +91,7 @@ function renderSodaTable(sodas) {
   document.querySelectorAll('.edit-soda').forEach(btn => btn.onclick = async () => {
     const res = await fetch(`${baseUrl}/soda/${btn.dataset.id}`);
     const s = await res.json();
-    ['soda-id','soda-name','soda-ml','soda-price'].forEach(f => document.getElementById(f).value = s[f.split('-')[1]]);
+    ['soda-id','soda-name','soda-type','soda-location'].forEach(f => document.getElementById(f).value = s[f.split('-')[1]]);
   });
   document.querySelectorAll('.delete-soda').forEach(btn => btn.onclick = async () => { await fetch(`${baseUrl}/soda/${btn.dataset.id}`, {method:'DELETE'}); loadSodas(); });
 }
@@ -101,8 +101,8 @@ sodaForm.onsubmit = async e => {
   const id = document.getElementById('soda-id').value;
   const payload = {
     name: document.getElementById('soda-name').value,
-    ml: parseInt(document.getElementById('soda-ml').value,10),
-    price: parseFloat(document.getElementById('soda-price').value)
+    type: document.getElementById('soda-type').value,
+    location: document.getElementById('soda-location').value
   };
   const method = id ? 'PUT' : 'POST';
   const url = id ? `${baseUrl}/soda` : `${baseUrl}/soda`;

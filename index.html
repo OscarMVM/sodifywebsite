@@ -47,15 +47,15 @@
       <h2>Sodas</n2>
       <table id="soda-table">
         <thead>
-          <tr><th>ID</th><th>Nombre</th><th>ML</th><th>Precio</th><th>Acciones</th></tr>
+          <tr><th>ID</th><th>Nombre</th><th>Tipo</th><th>Lugar</th><th>Acciones</th></tr>
         </thead>
         <tbody></tbody>
       </table>
       <form id="soda-form">
         <input type="hidden" id="soda-id">
         <input type="text" id="soda-name" placeholder="Nombre" required>
-        <input type="number" id="soda-ml" placeholder="Mililitros" required>
-        <input type="number" step="0.01" id="soda-price" placeholder="Precio" required>
+        <input type="text" id="soda-type" placeholder="Tipo" required>
+        <input type="text" id="soda-location" placeholder="Lugar" required>
         <button type="submit">Guardar Soda</button>
       </form>
     </section>
