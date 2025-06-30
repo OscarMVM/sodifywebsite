@@ -1,113 +1,172 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sodify</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sodify</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-  <header>
-    <h1>Sodify</h1>
-    <nav>
-      <ul>
-        <li><a href="#" data-module-target="home">Home</a></li>
-        <li><a href="#" data-module-target="user">Usuarios</a></li>
-        <li><a href="#" data-module-target="soda">Sodas</a></li>
-        <li><a href="#" data-module-target="menu">Menú</a></li>
-        <li><a href="#" data-module-target="item">Items</a></li>
-        <li><a href="#" data-module-target="carrito">Carrito</a></li>
-      </ul>
-    </nav>
-  </header>
-  <main>
-    <section id="home-module" class="module-section active">
-      <h2>Bienvenido a Sodify</h2>
-      <p>Gestión de Usuarios, Sodas, Menú, Items y Carrito.</p>
-    </section>
-    <section id="user-module" class="module-section">
-      <h2>Usuarios</h2>
-      <table id="user-table">
-        <thead>
-          <tr><th>ID</th><th>Nombre</th><th>Email</th><th>Tipo</th><th>Acciones</th></tr>
-        </thead>
-        <tbody></tbody>
-      </table>
-      <form id="user-form">
-        <input type="hidden" id="user-id">
-        <input type="text" id="user-name" placeholder="Nombre" required>
-        <input type="email" id="user-email" placeholder="Email" required>
-        <input type="text" id="user-type" placeholder="Tipo" required>
-        <input type="password" id="user-password" placeholder="Password" required>
-        <button type="submit">Guardar Usuario</button>
-      </form>
-    </section>
-    <section id="soda-module" class="module-section">
-      <h2>Sodas</n2>
-      <table id="soda-table">
-        <thead>
-          <tr><th>ID</th><th>Nombre</th><th>Tipo</th><th>Lugar</th><th>Acciones</th></tr>
-        </thead>
-        <tbody></tbody>
-      </table>
-      <form id="soda-form">
-        <input type="hidden" id="soda-id">
-        <input type="text" id="soda-name" placeholder="Nombre" required>
-        <input type="text" id="soda-type" placeholder="Tipo" required>
-        <input type="text" id="soda-location" placeholder="Lugar" required>
-        <button type="submit">Guardar Soda</button>
-      </form>
-    </section>
-    <section id="menu-module" class="module-section">
-      <h2>Menú</h2>
-      <table id="menu-table">
-        <thead>
-          <tr><th>ID</th><th>Nombre</th><th>Precio</th><th>Descripción</th><th>Soda</th><th>Acciones</th></tr>
-        </thead>
-        <tbody></tbody>
-      </table>
-      <form id="menu-form">
-        <input type="hidden" id="menu-id">
-        <input type="text" id="menu-name" placeholder="Nombre" required>
-        <input type="number" step="0.01" id="menu-price" placeholder="Precio" required>
-        <input type="text" id="menu-description" placeholder="Descripción" required>
-        <input type="number" id="menu-soda-id" placeholder="ID de Soda" required>
-        <button type="submit">Guardar Menú</button>
-      </form>
-    </section>
-    <section id="item-module" class="module-section">
-      <h2>Items</h2>
-      <table id="item-table">
-        <thead>
-          <tr><th>ID</th><th>Nombre</th><th>Precio</th><th>Soda</th><th>Acciones</th></tr>
-        </thead>
-        <tbody></tbody>
-      </table>
-      <form id="item-form">
-        <input type="hidden" id="item-id">
-        <input type="text" id="item-name" placeholder="Nombre" required>
-        <input type="number" step="0.01" id="item-price" placeholder="Precio" required>
-        <input type="number" id="item-soda-id" placeholder="ID de Soda" required>
-        <button type="submit">Guardar Item</button>
-      </form>
-    </section>
-    <section id="carrito-module" class="module-section">
-      <h2>Carrito</h2>
-      <table id="carrito-table">
-        <thead>
-          <tr><th>ID</th><th>Item</th><th>Usuario</th><th>Categoría</th><th>Acciones</th></tr>
-        </thead>
-        <tbody></tbody>
-      </table>
-      <form id="carrito-form">
-        <input type="number" id="carrito-item-id" placeholder="ID de Item" required>
-        <input type="text" id="carrito-category" placeholder="Categoría" required>
-        <input type="email" id="carrito-email" placeholder="Email de Usuario" required>
-        <button type="submit">Agregar</button>
-      </form>
-    </section>
-  </main>
-  <script src="script.js"></script>
+    <header>
+        <h1>Sodify</h1>
+        <nav>
+            <ul>
+                <li><a href="#" data-module-target="home">Home</a></li>
+                <li><a href="#" data-module-target="user">Usuarios</a></li>
+                <li><a href="#" data-module-target="soda">Sodas</a></li>
+                <li><a href="#" data-module-target="menu">Menú</a></li>
+                <li><a href="#" data-module-target="item">Items</a></li>
+                <li><a href="#" data-module-target="carrito">Carrito</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="home-module" class="module-section active">
+            <section class="welcome-section">
+                <h1>¡Bienvenido a tu panel!</h1>
+                <p>Selecciona uno de los módulos para empezar.</p>
+            </section>
+
+            <div class="cards-container">
+                <div class="card">
+                    <h3>Usuarios</h3>
+                    <p>Gestiona usuarios de la aplicación.</p>
+                </div>
+                <div class="card">
+                    <h3>Sodas</h3>
+                    <p>Administra las sodas disponibles.</p>
+                </div>
+                <div class="card">
+                    <h3>Menú</h3>
+                    <p>Configura el menú principal.</p>
+                </div>
+                <div class="card">
+                    <h3>Items</h3>
+                    <p>Visualiza y edita items.</p>
+                </div>
+                <div class="card">
+                    <h3>Carrito</h3>
+                    <p>Revisa el carrito de compras.</p>
+                </div>
+            </div>
+        </section>
+        <section id="user-module" class="module-section">
+            <h2>Usuarios</h2>
+            <form id="user-form">
+                <input type="hidden" id="user-id">
+                <input type="text" id="user-name" placeholder="Nombre" required>
+                <input type="email" id="user-email" placeholder="Email" required>
+                <input type="text" id="user-type" placeholder="Tipo" required>
+                <input type="password" id="user-password" placeholder="Password" required>
+                <button type="submit">Guardar Usuario</button>
+            </form>
+            <table id="user-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <th>Tipo</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+        <section id="soda-module" class="module-section">
+            <h2>Sodas</h2>
+                <form id="soda-form">
+                    <input type="hidden" id="soda-id">
+                    <input type="text" id="soda-name" placeholder="Nombre" required>
+                    <input type="text" id="soda-type" placeholder="Tipo" required>
+                    <input type="text" id="soda-location" placeholder="Lugar" required>
+                    <button type="submit">Guardar Soda</button>
+                </form>
+                <table id="soda-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Tipo</th>
+                            <th>Lugar</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+        </section>
+        <section id="menu-module" class="module-section">
+            <h2>Menú</h2>
+            <form id="menu-form">
+                <input type="hidden" id="menu-id">
+                <input type="text" id="menu-name" placeholder="Nombre" required>
+                <input type="number" step="0.01" id="menu-price" placeholder="Precio" required>
+                <input type="text" id="menu-description" placeholder="Descripción" required>
+                <input type="number" id="menu-soda-id" placeholder="ID de Soda" required>
+                <button type="submit">Guardar Menú</button>
+            </form>
+            <table id="menu-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Descripción</th>
+                        <th>Soda</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+        <section id="item-module" class="module-section">
+            <h2>Items</h2>
+            <form id="item-form">
+                <input type="hidden" id="item-id">
+                <input type="text" id="item-name" placeholder="Nombre" required>
+                <input type="number" step="0.01" id="item-price" placeholder="Precio" required>
+                <input type="number" id="item-soda-id" placeholder="ID de Soda" required>
+                <button type="submit">Guardar Item</button>
+            </form>
+            <table id="item-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Soda</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+        <section id="carrito-module" class="module-section">
+            <h2>Carrito</h2>
+            <form id="carrito-form">
+                <input type="number" id="carrito-item-id" placeholder="ID de Item" required>
+                <input type="text" id="carrito-category" placeholder="Categoría" required>
+                <input type="email" id="carrito-email" placeholder="Email de Usuario" required>
+                <button type="submit">Agregar</button>
+            </form>
+            <table id="carrito-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Item</th>
+                        <th>Usuario</th>
+                        <th>Categoría</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+    </main>
+    <script src="script.js"></script>
 </body>
+
 </html>
